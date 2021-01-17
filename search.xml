@@ -23,36 +23,9 @@
       </tags>
   </entry>
   <entry>
-    <title>RBAC</title>
-    <url>/2021/01/17/RBAC/</url>
-    <content><![CDATA[<h1 id="RBAC学习"><a href="#RBAC学习" class="headerlink" title="RBAC学习"></a>RBAC学习</h1><h2 id="一-什么是RBAC？"><a href="#一-什么是RBAC？" class="headerlink" title="一. 什么是RBAC？"></a>一. 什么是RBAC？</h2><p>RBAC(Role-Based Access Control)基于角色的访问控制</p>
-<p>RBAC认为权限的过程可以抽象概括为：</p>
-<p>判断【who是否对What进行how的访问操作(Operator)】</p>
-<p>Who：权限的拥有者或者主体</p>
-<p>How：具体的权限</p>
-<p>Operator：操作。表明对what的how操作。也就是Privilege+Resource</p>
-<p>Role：角色，一定数量的权限的集合。权限分配的单位与载体，目的是隔离User与Privilege的逻辑关系</p>
-<h2 id="RBAC0"><a href="#RBAC0" class="headerlink" title="RBAC0"></a>RBAC0</h2><p>定义了能构成一个RBAC控制系统的最小的元素集合</p>
-<p>在RBAC之中，包含用户users(USERS)、角色roles(ROLES)、目标objects(OBS)、操作operations(OPS)、许可权permissions(PRMS)五个基本数据元素，<font color='orange'>权限被赋予角色</font>,而不是用户，当一个角色被指定给一个用户时，此用户就拥有了该角色所包含的权限，RBAC1、RBAC2、RBAC3都是先后在RBAC0上的扩展</p>
-<h2 id="RBAC1"><a href="#RBAC1" class="headerlink" title="RBAC1"></a>RBAC1</h2><p>引入角色之间的继承关系</p>
-<p>角色之间的继承关系可以分为继承关系和受限继承关系。一般继承关系仅要求角色继承关系是一个绝对偏序关系，允许角色间的多继承。而受限继承关系则进一步要求角色继承关系是一个树结构。</p>
-<p>RBAC1是对RBAC0进行了扩展，是RBAC的角色分层模型，RBAC1引入了角色继承概念，有了继承就有了上下级的包含关系。</p>
-<h3 id="RBAC2"><a href="#RBAC2" class="headerlink" title="RBAC2"></a>RBAC2</h3><p>该模型中添加了责任分离关系</p>
-<p>一些特殊的角色是不能赋予给一个用户的，比如：财务当中的会计和出纳角色不能同时赋予给一个人</p>
-<h2 id="RBAC3"><a href="#RBAC3" class="headerlink" title="RBAC3"></a>RBAC3</h2><p>RBAC3包含了RBAC1和RBAC2，既提供了角色间的继承关系，又提供了责任分离关系</p>
-<h1 id="二-RBAC实战案例"><a href="#二-RBAC实战案例" class="headerlink" title="二.RBAC实战案例"></a>二.RBAC实战案例</h1><h2 id="1-需求"><a href="#1-需求" class="headerlink" title="1   需求"></a>1   需求</h2><ol>
-<li>实现用户登录功能</li>
-<li>使用RBAC0模型管理系统权限</li>
-<li>对系统的菜单以及菜单中的链接进行管理</li>
-<li>用户登录后首页根据用户角色显示该角色所对应的菜单</li>
-<li>禁止用户越级访问</li>
-</ol>
-<h2 id="2-技术选择"><a href="#2-技术选择" class="headerlink" title="2  技术选择"></a>2  技术选择</h2><ol>
-<li>框架：SpringMVC+Spring+Mybatis</li>
-<li>数据库：Mysql</li>
-</ol>
-<h2 id="3-数据库设计"><a href="#3-数据库设计" class="headerlink" title="3  数据库设计"></a>3  数据库设计</h2><p>数据库的设计表</p>
-]]></content>
+    <title>Shiro</title>
+    <url>/2021/01/17/Shiro/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>markdown语法学习 &amp;&amp;  Typora工具的使用</title>
@@ -65,11 +38,6 @@
   <entry>
     <title>使用Hexo搭建个人博客</title>
     <url>/2021/01/17/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Shiro</title>
-    <url>/2021/01/17/Shiro/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -145,5 +113,37 @@
       <categories>
         <category>数据结构与算法</category>
       </categories>
+  </entry>
+  <entry>
+    <title>RBAC</title>
+    <url>/2021/01/17/RBAC/</url>
+    <content><![CDATA[<h1 id="RBAC学习"><a href="#RBAC学习" class="headerlink" title="RBAC学习"></a>RBAC学习</h1><h2 id="一-什么是RBAC？"><a href="#一-什么是RBAC？" class="headerlink" title="一. 什么是RBAC？"></a>一. 什么是RBAC？</h2><p>RBAC(Role-Based Access Control)基于角色的访问控制</p>
+<p>RBAC认为权限的过程可以抽象概括为：</p>
+<p>判断【who是否对What进行how的访问操作(Operator)】</p>
+<p>Who：权限的拥有者或者主体</p>
+<p>How：具体的权限</p>
+<p>Operator：操作。表明对what的how操作。也就是Privilege+Resource</p>
+<p>Role：角色，一定数量的权限的集合。权限分配的单位与载体，目的是隔离User与Privilege的逻辑关系</p>
+<h2 id="RBAC0"><a href="#RBAC0" class="headerlink" title="RBAC0"></a>RBAC0</h2><p>定义了能构成一个RBAC控制系统的最小的元素集合</p>
+<p>在RBAC之中，包含用户users(USERS)、角色roles(ROLES)、目标objects(OBS)、操作operations(OPS)、许可权permissions(PRMS)五个基本数据元素，<font color='orange'>权限被赋予角色</font>,而不是用户，当一个角色被指定给一个用户时，此用户就拥有了该角色所包含的权限，RBAC1、RBAC2、RBAC3都是先后在RBAC0上的扩展</p>
+<h2 id="RBAC1"><a href="#RBAC1" class="headerlink" title="RBAC1"></a>RBAC1</h2><p>引入角色之间的继承关系</p>
+<p>角色之间的继承关系可以分为继承关系和受限继承关系。一般继承关系仅要求角色继承关系是一个绝对偏序关系，允许角色间的多继承。而受限继承关系则进一步要求角色继承关系是一个树结构。</p>
+<p>RBAC1是对RBAC0进行了扩展，是RBAC的角色分层模型，RBAC1引入了角色继承概念，有了继承就有了上下级的包含关系。</p>
+<h3 id="RBAC2"><a href="#RBAC2" class="headerlink" title="RBAC2"></a>RBAC2</h3><p>该模型中添加了责任分离关系</p>
+<p>一些特殊的角色是不能赋予给一个用户的，比如：财务当中的会计和出纳角色不能同时赋予给一个人</p>
+<h2 id="RBAC3"><a href="#RBAC3" class="headerlink" title="RBAC3"></a>RBAC3</h2><p>RBAC3包含了RBAC1和RBAC2，既提供了角色间的继承关系，又提供了责任分离关系</p>
+<h1 id="二-RBAC实战案例"><a href="#二-RBAC实战案例" class="headerlink" title="二.RBAC实战案例"></a>二.RBAC实战案例</h1><h2 id="1-需求"><a href="#1-需求" class="headerlink" title="1   需求"></a>1   需求</h2><ol>
+<li>实现用户登录功能</li>
+<li>使用RBAC0模型管理系统权限</li>
+<li>对系统的菜单以及菜单中的链接进行管理</li>
+<li>用户登录后首页根据用户角色显示该角色所对应的菜单</li>
+<li>禁止用户越级访问</li>
+</ol>
+<h2 id="2-技术选择"><a href="#2-技术选择" class="headerlink" title="2  技术选择"></a>2  技术选择</h2><ol>
+<li>框架：SpringMVC+Spring+Mybatis</li>
+<li>数据库：Mysql</li>
+</ol>
+<h2 id="3-数据库设计"><a href="#3-数据库设计" class="headerlink" title="3  数据库设计"></a>3  数据库设计</h2><p>数据库的设计表</p>
+]]></content>
   </entry>
 </search>
