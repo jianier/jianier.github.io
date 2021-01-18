@@ -25,7 +25,8 @@
   <entry>
     <title>Leetcode每日一题</title>
     <url>/2021/01/18/Leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="721题—账户合并"><a href="#721题—账户合并" class="headerlink" title="721题—账户合并"></a>721题—<font color='orange'>账户合并</font></h2><h3 id="知识点：并查集"><a href="#知识点：并查集" class="headerlink" title="知识点：并查集"></a>知识点：并查集</h3><p><strong>一。什么是并查集？</strong>？</p>
+    <content><![CDATA[<h2 id="721题—账户合并"><a href="#721题—账户合并" class="headerlink" title="721题—账户合并"></a>721题—<font color='orange'>账户合并</font></h2><p>题目：<a href="https://leetcode-cn.com/problems/accounts-merge">力扣</a></p>
+<h3 id="知识点：并查集-哈希表"><a href="#知识点：并查集-哈希表" class="headerlink" title="知识点：并查集+哈希表"></a>知识点：并查集+哈希表</h3><p><strong>一。什么是并查集？</strong>？</p>
 <p><a href="https://baike.sogou.com/v54997185.htm?fromTitle=%E5%B9%B6%E6%9F%A5%E9%9B%86">百度百科</a></p>
 <p>并查集是一种<strong>树型</strong> 的数据结构，用于处理一些不交集的合并及查询问题。顾名思义，就是交集为空集的集合。有一个<strong>联合-查找算法</strong>定义了两个用于此数据结构的操作：</p>
 <p><strong>Find：</strong>确定元素属于哪一个子集。它可以被用来确定两个元素是否属于同一个子集。</p>
