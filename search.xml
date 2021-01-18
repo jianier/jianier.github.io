@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Shiro</title>
-    <url>/2021/01/17/Shiro/</url>
-    <content><![CDATA[]]></content>
+    <title>JVM虚拟机学习</title>
+    <url>/2021/01/17/JVM%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<ul>
+<li>JVM的整体结构  </li>
+<li>Java代码执行流程  </li>
+<li>JVM的架构模型    </li>
+<li>JVM的生命周期   </li>
+<li>JVM的发展历程  </li>
+</ul>
+<p>开发人员如何看待上层框架？<br>一些有一定工作经验的开发人员，打心眼儿里觉得SSM、微服务等上层技术才是重点，基础技术并不重要，这其实是一种本末倒置的“病态”。<br>如果我们把核心类库的API比作数学公式的话，那么Java虚拟机的知识就好比公式的推导过程。  </p>
+<p>为什么要学习JVM？<br>1）面试的需要(BATJ 京东、TMD 今日头条美团 滴滴、PKQ拼多多 快手趣多多等面试都爱问)<br>2）中高级程序员必备技能：项目管理、调优的需要<br>3）追求极客的精神<br>比如：垃圾回收算法、JIT即时编译器、底层原理 </p>
+<h1 id="一-JVM与Java体系结构"><a href="#一-JVM与Java体系结构" class="headerlink" title="一.JVM与Java体系结构"></a>一.JVM与Java体系结构</h1><p>Java的基本概念</p>
+<p>Java虚拟机根本不关心运行在其内部的程序到底如何使用何种编程语言编写的 ，它$\textcolor{Magenta}{只关心“字节码”文件}$，也就是说Java虚拟机拥有语言无关性，并不会单纯地与Java语言“终身绑定”，只要其他编程语言的编译结果满足并包含Java虚拟机的内部指令集、符号表以及其他的辅助信息，它就是一个有效的字节码文件，就能够被虚拟机所识别并装载运行。</p>
+<h1 id="二-类加载子系统"><a href="#二-类加载子系统" class="headerlink" title="二.类加载子系统"></a>二.类加载子系统</h1><h1 id="三-运行时数据取概述及线程"><a href="#三-运行时数据取概述及线程" class="headerlink" title="三.运行时数据取概述及线程"></a>三.运行时数据取概述及线程</h1><h1 id="四-程序计数器"><a href="#四-程序计数器" class="headerlink" title="四.程序计数器"></a>四.程序计数器</h1><h1 id="五-虚拟机栈"><a href="#五-虚拟机栈" class="headerlink" title="五.虚拟机栈"></a>五.虚拟机栈</h1><h1 id="六-本地方法接口"><a href="#六-本地方法接口" class="headerlink" title="六.本地方法接口"></a>六.本地方法接口</h1><h1 id="七-本地方法栈"><a href="#七-本地方法栈" class="headerlink" title="七.本地方法栈"></a>七.本地方法栈</h1><h1 id="八-堆"><a href="#八-堆" class="headerlink" title="八.堆"></a>八.堆</h1><h1 id="九-方法区"><a href="#九-方法区" class="headerlink" title="九. 方法区"></a>九. 方法区</h1><h1 id="十-直接内存"><a href="#十-直接内存" class="headerlink" title="十.直接内存"></a>十.直接内存</h1><h1 id="十一-执行引擎"><a href="#十一-执行引擎" class="headerlink" title="十一.执行引擎"></a>十一.执行引擎</h1><h1 id="十二-String-Table"><a href="#十二-String-Table" class="headerlink" title="十二. String  Table"></a>十二. String  Table</h1><h1 id="十三-垃圾回收概述"><a href="#十三-垃圾回收概述" class="headerlink" title="十三.垃圾回收概述"></a>十三.垃圾回收概述</h1><h1 id="十四-垃圾回收相关算法"><a href="#十四-垃圾回收相关算法" class="headerlink" title="十四. 垃圾回收相关算法"></a>十四. 垃圾回收相关算法</h1><h1 id="十五-垃圾回收相关概念"><a href="#十五-垃圾回收相关概念" class="headerlink" title="十五 垃圾回收相关概念"></a>十五 垃圾回收相关概念</h1><h1 id="十六-垃圾回收器"><a href="#十六-垃圾回收器" class="headerlink" title="十六. 垃圾回收器"></a>十六. 垃圾回收器</h1>]]></content>
+      <categories>
+        <category>JVM虚拟机学习</category>
+      </categories>
       <tags>
-        <tag>Shiro</tag>
+        <tag>Java底层源码</tag>
       </tags>
   </entry>
   <entry>
@@ -44,25 +58,11 @@
       </tags>
   </entry>
   <entry>
-    <title>JVM虚拟机学习</title>
-    <url>/2021/01/17/JVM%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<ul>
-<li>JVM的整体结构  </li>
-<li>Java代码执行流程  </li>
-<li>JVM的架构模型    </li>
-<li>JVM的生命周期   </li>
-<li>JVM的发展历程  </li>
-</ul>
-<p>开发人员如何看待上层框架？<br>一些有一定工作经验的开发人员，打心眼儿里觉得SSM、微服务等上层技术才是重点，基础技术并不重要，这其实是一种本末倒置的“病态”。<br>如果我们把核心类库的API比作数学公式的话，那么Java虚拟机的知识就好比公式的推导过程。  </p>
-<p>为什么要学习JVM？<br>1）面试的需要(BATJ 京东、TMD 今日头条美团 滴滴、PKQ拼多多 快手趣多多等面试都爱问)<br>2）中高级程序员必备技能：项目管理、调优的需要<br>3）追求极客的精神<br>比如：垃圾回收算法、JIT即时编译器、底层原理 </p>
-<h1 id="一-JVM与Java体系结构"><a href="#一-JVM与Java体系结构" class="headerlink" title="一.JVM与Java体系结构"></a>一.JVM与Java体系结构</h1><p>Java的基本概念</p>
-<p>Java虚拟机根本不关心运行在其内部的程序到底如何使用何种编程语言编写的 ，它$\textcolor{Magenta}{只关心“字节码”文件}$，也就是说Java虚拟机拥有语言无关性，并不会单纯地与Java语言“终身绑定”，只要其他编程语言的编译结果满足并包含Java虚拟机的内部指令集、符号表以及其他的辅助信息，它就是一个有效的字节码文件，就能够被虚拟机所识别并装载运行。</p>
-<h1 id="二-类加载子系统"><a href="#二-类加载子系统" class="headerlink" title="二.类加载子系统"></a>二.类加载子系统</h1><h1 id="三-运行时数据取概述及线程"><a href="#三-运行时数据取概述及线程" class="headerlink" title="三.运行时数据取概述及线程"></a>三.运行时数据取概述及线程</h1><h1 id="四-程序计数器"><a href="#四-程序计数器" class="headerlink" title="四.程序计数器"></a>四.程序计数器</h1><h1 id="五-虚拟机栈"><a href="#五-虚拟机栈" class="headerlink" title="五.虚拟机栈"></a>五.虚拟机栈</h1><h1 id="六-本地方法接口"><a href="#六-本地方法接口" class="headerlink" title="六.本地方法接口"></a>六.本地方法接口</h1><h1 id="七-本地方法栈"><a href="#七-本地方法栈" class="headerlink" title="七.本地方法栈"></a>七.本地方法栈</h1><h1 id="八-堆"><a href="#八-堆" class="headerlink" title="八.堆"></a>八.堆</h1><h1 id="九-方法区"><a href="#九-方法区" class="headerlink" title="九. 方法区"></a>九. 方法区</h1><h1 id="十-直接内存"><a href="#十-直接内存" class="headerlink" title="十.直接内存"></a>十.直接内存</h1><h1 id="十一-执行引擎"><a href="#十一-执行引擎" class="headerlink" title="十一.执行引擎"></a>十一.执行引擎</h1><h1 id="十二-String-Table"><a href="#十二-String-Table" class="headerlink" title="十二. String  Table"></a>十二. String  Table</h1><h1 id="十三-垃圾回收概述"><a href="#十三-垃圾回收概述" class="headerlink" title="十三.垃圾回收概述"></a>十三.垃圾回收概述</h1><h1 id="十四-垃圾回收相关算法"><a href="#十四-垃圾回收相关算法" class="headerlink" title="十四. 垃圾回收相关算法"></a>十四. 垃圾回收相关算法</h1><h1 id="十五-垃圾回收相关概念"><a href="#十五-垃圾回收相关概念" class="headerlink" title="十五 垃圾回收相关概念"></a>十五 垃圾回收相关概念</h1><h1 id="十六-垃圾回收器"><a href="#十六-垃圾回收器" class="headerlink" title="十六. 垃圾回收器"></a>十六. 垃圾回收器</h1>]]></content>
-      <categories>
-        <category>JVM虚拟机学习</category>
-      </categories>
+    <title>Shiro</title>
+    <url>/2021/01/17/Shiro/</url>
+    <content><![CDATA[]]></content>
       <tags>
-        <tag>Java底层源码</tag>
+        <tag>Shiro</tag>
       </tags>
   </entry>
   <entry>
