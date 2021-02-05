@@ -3,9 +3,8 @@
   <entry>
     <title>Dubbo</title>
     <url>/2021/02/05/Dubbo/</url>
-    <content><![CDATA[<h1 id="Dubbo学习"><a href="#Dubbo学习" class="headerlink" title="Dubbo学习"></a>Dubbo学习</h1><h2 id="一、基础知识"><a href="#一、基础知识" class="headerlink" title="一、基础知识"></a>一、基础知识</h2><h2 id="1-分布式理论基础"><a href="#1-分布式理论基础" class="headerlink" title="1. 分布式理论基础"></a>1. 分布式理论基础</h2><h3 id="1-1-什么是分布式系统？"><a href="#1-1-什么是分布式系统？" class="headerlink" title="1.1 什么是分布式系统？"></a>1.1 什么是分布式系统？</h3><pre><code>    分布式系统(distributed system)是建立在网络之上的软件系统。
-
-    随着互连网的发展，网站应用的规模不断扩大，常规的垂直应用架构已无法应对，分布式服务架构以及流动计算架构势在必行，亟需    一个**治理系统**（比如说Dubbo）确保架构有条不紊的演进。</code></pre>
+    <content><![CDATA[<h1 id="Dubbo学习"><a href="#Dubbo学习" class="headerlink" title="Dubbo学习"></a>Dubbo学习</h1><h2 id="一、基础知识"><a href="#一、基础知识" class="headerlink" title="一、基础知识"></a>一、基础知识</h2><h2 id="1-分布式理论基础"><a href="#1-分布式理论基础" class="headerlink" title="1. 分布式理论基础"></a>1. 分布式理论基础</h2><h3 id="1-1-什么是分布式系统？"><a href="#1-1-什么是分布式系统？" class="headerlink" title="1.1 什么是分布式系统？"></a>1.1 什么是分布式系统？</h3><p>分布式系统(distributed system)是建立在网络之上的软件系统。</p>
+<p>随着互连网的发展，网站应用的规模不断扩大，常规的垂直应用架构已无法应对，分布式服务架构以及流动计算架构势在必行，亟需    一个<strong>治理系统</strong>（比如说Dubbo）确保架构有条不紊的演进。</p>
 <h3 id="1-2-发展演变"><a href="#1-2-发展演变" class="headerlink" title="1.2 发展演变"></a>1.2 发展演变</h3><h3 id=""><a href="#" class="headerlink" title=""></a><img src="https://img-blog.csdnimg.cn/20210205104436391.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDY1MTE1OA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></h3><ul>
 <li><p><strong>单一应用架构</strong> 比如：超市的收银系统、公司的管理系统、小型的网站应用</p>
 <ul>
@@ -15,31 +14,25 @@
 </li>
 </ul>
 <p><img src="https://img-blog.csdnimg.cn/20210205104557417.png#pic_center" alt="在这里插入图片描述"></p>
+<p><strong>缺点</strong>：</p>
+<p>扩展应用(带着整个应用扩展)不容易、协调开发不容易(同时在一个上去开发)</p>
 </li>
-</ul>
-<pre><code>**缺点**：
-
-扩展应用(带着整个应用扩展)不容易、协调开发不容易(同时在一个上去开发)</code></pre>
-<ul>
 <li><p><strong>垂直应用架构</strong></p>
 <ul>
 <li><p>当访问量逐渐增大，单一应用增加机器带来的加速度越来越小，将应用拆成互不相干的几个应用，以提升效率。</p>
 </li>
 <li><p>此时，用于加速前端页面开发的 Web框架(MVC) 是关键。</p>
 <p><img src="https://img-blog.csdnimg.cn/20210205104459438.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDY1MTE1OA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>每一个模块从页面、业务逻辑、程序、数据库都是完整的</p>
+<p><strong>优点</strong>：开发和维护不同的应用互不干扰、性能扩展容易、</p>
+<p><strong>缺点</strong>：</p>
+<ol>
+<li>界面+业务逻辑的实现分离</li>
+<li><strong>应用之间不可能完全独立，大量的应用之间需要交互</strong></li>
+</ol>
 </li>
 </ul>
 </li>
-</ul>
-<pre><code>每一个模块从页面、业务逻辑、程序、数据库都是完整的
-
-**优点**：开发和维护不同的应用互不干扰、性能扩展容易、
-
-**缺点**：
-
-1. 界面+业务逻辑的实现分离
-2. **应用之间不可能完全独立，大量的应用之间需要交互**</code></pre>
-<ul>
 <li><p><strong>分布式服务架构</strong> </p>
 <ul>
 <li><p>当垂直应用越来越多，应用之间交互不可避免，将核心业务抽取出来，作为独立的服务，逐渐形成稳定的服务中心，使前端应用能更快速的响应多变的市场需求。</p>
