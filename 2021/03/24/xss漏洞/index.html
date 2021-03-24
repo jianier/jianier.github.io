@@ -90,17 +90,21 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 
 
 
-<meta name="description" content="要相信自己会变得更好。善待自己，让自己hi的生活精彩纷呈。">
+<meta name="description" content="XSS简介 XSS作为OWASP TOP10之一，中文叫做跨站脚本攻击Cross-site scripting,本来应该缩写为CSS，但由于和CSS【Cascading Style Sheets,层叠样式脚本】重名，所以更名为XSS。XSS跨站脚本攻击主要基于JavaScript简称JS来完成恶意的攻击行为。 XSS是一种经常出现在web应用中的计算机安全漏洞，也是web中最主流的攻击方式。 概念">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Hexo搭建个人博客">
-<meta property="og:url" content="https://jianier.github.io/2021/01/17/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="xss漏洞">
+<meta property="og:url" content="https://jianier.github.io/2021/03/24/xss%E6%BC%8F%E6%B4%9E/index.html">
 <meta property="og:site_name" content="Jianier&#39;s blog">
-<meta property="og:description" content="要相信自己会变得更好。善待自己，让自己hi的生活精彩纷呈。">
+<meta property="og:description" content="XSS简介 XSS作为OWASP TOP10之一，中文叫做跨站脚本攻击Cross-site scripting,本来应该缩写为CSS，但由于和CSS【Cascading Style Sheets,层叠样式脚本】重名，所以更名为XSS。XSS跨站脚本攻击主要基于JavaScript简称JS来完成恶意的攻击行为。 XSS是一种经常出现在web应用中的计算机安全漏洞，也是web中最主流的攻击方式。 概念">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-01-17T12:17:53.000Z">
-<meta property="article:modified_time" content="2021-01-17T13:06:15.147Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210322183454829.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDY1MTE1OA==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210322183424120.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDY1MTE1OA==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210322183336920.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDY1MTE1OA==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="article:published_time" content="2021-03-24T13:12:09.000Z">
+<meta property="article:modified_time" content="2021-03-24T13:12:23.616Z">
 <meta property="article:author" content="Yao Jiaying">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210322183454829.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDY1MTE1OA==,size_16,color_FFFFFF,t_70#pic_center">
 
 
 
@@ -130,13 +134,13 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 
 
 
-  <link rel="canonical" href="https://jianier.github.io/2021/01/17/使用Hexo搭建个人博客/"/>
+  <link rel="canonical" href="https://jianier.github.io/2021/03/24/xss漏洞/"/>
 
 
 
 
 
-  <title>使用Hexo搭建个人博客 | Jianier's blog</title>
+  <title>xss漏洞 | Jianier's blog</title>
   
 
 
@@ -307,7 +311,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jianier.github.io/2021/01/17/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+    <link itemprop="mainEntityOfPage" href="https://jianier.github.io/2021/03/24/xss%E6%BC%8F%E6%B4%9E/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -324,7 +328,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 
         
         
-          <h1 class="post-title" itemprop="name headline">使用Hexo搭建个人博客</h1>
+          <h1 class="post-title" itemprop="name headline">xss漏洞</h1>
         
 
         <div class="post-meta">
@@ -336,8 +340,8 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-01-17T20:17:53+08:00">
-                2021-01-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-24T21:12:09+08:00">
+                2021-03-24
               </time>
             
 
@@ -346,28 +350,6 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -390,7 +372,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  0
+                  2.8k
                 </span>
               
 
@@ -406,7 +388,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  1
+                  10
                 </span>
               
             </div>
@@ -427,7 +409,216 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
       
 
       
-        
+        <h2 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h2><p>简介</p>
+<p><strong>XSS作为OWASP TOP10之</strong>一，中文叫做<strong>跨站脚本攻击</strong>Cross-site scripting,本来应该缩写为CSS，但由于和CSS【Cascading Style Sheets,层叠样式脚本】重名，所以更名为XSS。XSS跨站脚本攻击主要基于JavaScript简称JS来完成恶意的攻击行为。</p>
+<p>XSS是一种经常出现在web应用中的计算机安全漏洞，也是web中最主流的攻击方式。</p>
+<p><strong>概念</strong></p>
+<ul>
+<li>XSS是指恶意攻击者利用网站<strong>没有对用户提交数据进行转义处理或者过滤不足</strong>的缺点，进而添加一些代码，嵌入到web页面中去。使别的用户访问都会执行相应的嵌入代码。</li>
+<li>从而获取用户资料、利用用户身份进行某种动作或者对访问者进行病毒侵害的一种攻击方式。</li>
+</ul>
+<p><strong>XSS原理</strong></p>
+<p>利用我们所知道的各种黑魔法，向web页面插入JS代码，让JS代码可以被浏览器执行，访问该页面的用户则被攻击</p>
+<p><strong>针对用户</strong></p>
+<ul>
+<li>窃取cookie劫持会话</li>
+<li>网络钓鱼</li>
+<li>放马挖矿</li>
+<li>广告刷流量</li>
+</ul>
+<p><strong>针对WEB服务</strong></p>
+<ul>
+<li>篡改页面</li>
+<li><strong>劫持后台</strong></li>
+<li>传播蠕虫</li>
+<li><strong>内网扫描</strong></li>
+</ul>
+<p>攻击者的JS水平决定了攻击效果</p>
+<h3 id="XSS类型"><a href="#XSS类型" class="headerlink" title="XSS类型"></a>XSS类型</h3><ul>
+<li><p><strong>反射型</strong></p>
+<p>反射型也称作非持久型，这类型的脚本是最常见的，也是使用最为广泛的一种，主要用于将恶意的脚本附加到URL地址的参数中</p>
+</li>
+<li><p><strong>存储型</strong></p>
+<p>攻击者将已经构造完成的恶意页面发送给用户，用户访问看似正常的页面后收到攻击，这类XSS通常无法直接在URL中看到恶意代码，具有较强的持久性和隐蔽性</p>
+</li>
+<li><p><strong>DOM型</strong></p>
+<p>DOM型XSS<strong>无需和后端交互</strong>，而是基于JavaScript上，JS解析        URL中恶意参数导致执行JS代码。</p>
+</li>
+</ul>
+<p><strong>存储型的XSS危害是最大的</strong></p>
+<h3 id="存储型XSS"><a href="#存储型XSS" class="headerlink" title="存储型XSS"></a>存储型XSS</h3><ul>
+<li><p>持久性，代码是存储在web服务器中的，比如在个人信息或发表文章等地方插入代码，如果没有过滤或过滤不严，那么这些代码将存储在服务器中，用户访问该页面的时候触发代码执行。这种XSS比较危险，容易造成蠕虫】盗窃cookie。每一个访问特定页面的用户，都会受到攻击。</p>
+</li>
+<li><p>特点：</p>
+<ul>
+<li><p>XSS攻击代码存储在web server上</p>
+</li>
+<li><p>攻击者，一般是通过网站的留言、评论、博客、日志等等功能（所有能够向web server输入内容的地方）将攻击代码存储在web server上的<br><img src="https://img-blog.csdnimg.cn/20210322183454829.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDY1MTE1OA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="反射型XSS"><a href="#反射型XSS" class="headerlink" title="反射型XSS"></a>反射型XSS</h3><ul>
+<li>发射型跨站脚本也称作非持久型、参数型跨站脚本、这类型的脚本是最常见的，也是使用最为广泛的一种，主要用于将恶意的脚本附加到URL地址的参数中</li>
+<li>例如</li>
+<li><a target="_blank" rel="noopener" href="http://www.test.com/search.php?key=&#39;&#39;&gt;">http://www.test.com/search.php?key=&#39;&#39;&gt;</a>&lt; script&gt;  alert(‘’xss’’) </script></li>
+<li>一般使用的将构造好的URL发给受害者，是受害者点击触发，而且只执行一次，非持久化。<br><img src="https://img-blog.csdnimg.cn/20210322183424120.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDY1MTE1OA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
+</ul>
+<h3 id="JS简介"><a href="#JS简介" class="headerlink" title="JS简介"></a>JS简介</h3><p>JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。他的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML(标准通用标记语言下的一个应用)网页上使用，用来给HTML网页增加动态功能。</p>
+<h3 id="XSS防御与发现"><a href="#XSS防御与发现" class="headerlink" title="XSS防御与发现"></a>XSS防御与发现</h3><ul>
+<li><p>HTML节点内容的XSS防御</p>
+<p>转义掉&lt;&lt;和&gt;&gt;即转移掉&lt;&gt;即可，转义的时机有两种，一种是写入数据库的时候进行转义，另一种是在解析的时候进行转义</p>
+<p>这里是在显示的时候转义</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> escapeHtml=<span class="function"><span class="keyword">function</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">	str =str.replace(<span class="regexp">/&gt;/g</span>,<span class="string">&#x27;&amp;lt;&#x27;</span>);</span><br><span class="line">	str =str.replace(<span class="regexp">/&gt;/g</span>,<span class="string">&#x27;&amp;gt;&#x27;</span>);</span><br><span class="line">	<span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br><span class="line">escapeHtml(content);</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<ul>
+<li><p>HTML属性的XSS防御</p>
+<p>转义”&amp;quto”；即转义掉双引号，‘转移掉单引号，另一个要注意的是实际上html的属性可以不包括引号，因此严格的说我们还需要对空格进行转义，但是这样会导致渲染的时候空格数不对，因此我们不转义空格，然后再写html属性的时候全部带上引号）这样属性就不会被提前关闭了</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> escapeHtmlProperty=<span class="function"><span class="keyword">function</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">	str =str.replace(<span class="regexp">/&quot;/g</span>,<span class="string">&#x27;&amp;quto;&#x27;</span>);</span><br><span class="line">	str =str.replace(<span class="regexp">/&#x27;/g</span>,<span class="string">&#x27;&amp;#39;&#x27;</span>);</span><br><span class="line">	str =str.replace(<span class="regexp">/ /g</span>,<span class="string">&#x27;&amp;#32;&#x27;</span>);</span><br><span class="line">	<span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br><span class="line">escapeHtml(content);</span><br></pre></td></tr></table></figure>
+<p>其实以上这两个函数可以合并成一个函数，这样不管是内容还是属性都可以使用一个函数来过滤了</p>
+<h5 id="html转义函数"><a href="#html转义函数" class="headerlink" title="html转义函数"></a>html转义函数</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> escapeHtmlProperty=<span class="function"><span class="keyword">function</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!str) <span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">	str =str.replace(<span class="regexp">/&amp;/g</span>,<span class="string">&#x27;&amp;amp;&#x27;</span>);</span><br><span class="line">	str =str.replace(<span class="regexp">/&gt;/g</span>,<span class="string">&#x27;&amp;lt;&#x27;</span>);</span><br><span class="line">	str =str.replace(<span class="regexp">/&gt;/g</span>,<span class="string">&#x27;&amp;gt;&#x27;</span>);</span><br><span class="line">	str =str.replace(<span class="regexp">/&quot;/g</span>,<span class="string">&#x27;&amp;quto;&#x27;</span>);</span><br><span class="line">	str =str.replace(<span class="regexp">/&#x27;/g</span>,<span class="string">&#x27;&amp;#39;&#x27;</span>);</span><br><span class="line">	<span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br><span class="line">escapeHtml(content);</span><br></pre></td></tr></table></figure></li>
+<li><p>js转义</p>
+<p>转义“\”  或者替换成json</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> escapeForJS=<span class="function"><span class="keyword">function</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!str) <span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">	str=str.replace(<span class="regexp">/\\/g</span>,<span class="string">&#x27;\\\\&#x27;</span>);</span><br><span class="line">	str=str.replace(<span class="regexp">/&quot;/g</span>,<span class="string">&#x27;\\&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里的解决方式并不完整，因为还有可能是单引号或者其他形式包裹的，这里最保险的方法其实很简单，就是对数据做一次JSON，stringify即可</p>
+</li>
+<li><p>富文本</p>
+<p>由于需要完整的HTML因此不太容易过滤，一般是按照白名单进行保留部分标签和属性来进行过滤，除了允许的标签和属性，其他的全部不允许（也有黑名单的方式，但是由于html复杂效果比较差，原理就是之前的正则替换）</p>
+<p>其实可以用别人写好的XSS组件就叫做XSS，直接</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> xss</span><br></pre></td></tr></table></figure>
+<p>白名单—-使用第三方库XSS，支持指定白名单</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var xssFilter=function(html)&#123;</span><br><span class="line">	if(!html) return &#x27;&#x27;;</span><br><span class="line">	var xss=require(&#x27;xss&#x27;);</span><br><span class="line">	var ret=xss.(html,&#123;</span><br><span class="line">		whiteList;&#123;</span><br><span class="line">			img;[&#x27;src&#x27;],</span><br><span class="line">			a;[&#x27;href&#x27;].</span><br><span class="line">			font;[&#x27;size&#x27;,&#x27;color&#x27;]</span><br><span class="line">		&#125;,</span><br><span class="line">        onIgnoreTag;function()&#123;</span><br><span class="line">        	return &#x27;&#x27;;</span><br><span class="line">        &#125;	</span><br><span class="line">	&#125;);</span><br><span class="line">	console.log(html,ret);</span><br></pre></td></tr></table></figure>
+<h3 id="Pikachu靶场上的漏洞类型列表如下："><a href="#Pikachu靶场上的漏洞类型列表如下：" class="headerlink" title="Pikachu靶场上的漏洞类型列表如下："></a>Pikachu靶场上的漏洞类型列表如下：</h3><ul>
+<li><p>Burt Force（暴力破解漏洞）</p>
+</li>
+<li><p>XSS（跨站脚本漏洞）</p>
+</li>
+<li><p>CSRF（跨站请求伪造）</p>
+</li>
+<li><p>SQL-Inject（SQL注入漏洞）</p>
+</li>
+<li><p>RCE（远程命令/代码执行）</p>
+</li>
+<li><p>Files Inclusion（文件包含漏洞）</p>
+</li>
+<li><p>Unsafe file downloads（不安全的文件下载）</p>
+</li>
+<li><p>Unsafe file uploads（不安全的文件上传）</p>
+</li>
+<li><p>Over Permisson（越权漏洞）</p>
+</li>
+<li><p>../../../（目录遍历）</p>
+</li>
+<li><p>I can see your ABC（敏感信息泄露）</p>
+</li>
+<li><p>PHP反序列化漏洞</p>
+</li>
+<li><p>XXE(XML External Entity attack)</p>
+</li>
+<li><p>不安全的URL重定向</p>
+</li>
+<li><p>SSRF（Server-Side Request Forgery）</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="XSS蠕虫攻击"><a href="#XSS蠕虫攻击" class="headerlink" title="XSS蠕虫攻击"></a>XSS蠕虫攻击</h3><p>XSS蠕虫的破坏力和影响力都是巨大的。XSS蠕虫主要发生在用户之间存在交互行为的页面中，当web应用程序对用户输入的数据信息没有严格的过滤时，通过结合Ajax的异步提交，就可以实现在植入恶意代码的同时，将恶意代码进行对外发送，即实现了代码的感染和传播，也就形成了XSS蠕虫。</p>
+<h3 id="挖掘XSS漏洞方法"><a href="#挖掘XSS漏洞方法" class="headerlink" title="挖掘XSS漏洞方法"></a>挖掘XSS漏洞方法</h3><ul>
+<li><p><strong>扫描工具自动化检测</strong></p>
+<p><strong>WVS</strong></p>
+<p><strong>AppScan</strong></p>
+<p><strong>JSky</strong></p>
+</li>
+<li><p><strong>手工测试</strong></p>
+</li>
+<li><p><strong>源码分析</strong></p>
+</li>
+</ul>
+<h3 id="XSS跨站脚本攻击漏洞防范"><a href="#XSS跨站脚本攻击漏洞防范" class="headerlink" title="XSS跨站脚本攻击漏洞防范"></a>XSS跨站脚本攻击漏洞防范</h3><ul>
+<li><strong>客户端用户</strong><ul>
+<li>IE8及高版本，开启XSS筛选器功能</li>
+<li>Firefox使用CSP、Noscript等扩展功能</li>
+<li>瑞星个人防火墙2012版本开启XSS拦截功能</li>
+</ul>
+</li>
+<li><strong>WEB应用程序员</strong><ul>
+<li>使用HttpOnly</li>
+<li>完整的输入、检出检查</li>
+</ul>
+</li>
+</ul>
+<p><strong>HttpOnly</strong></p>
+<ul>
+<li><p><strong>HttpOnly</strong>最初是由微软提出的，目前已经被多款流行浏览器厂商所采用。<strong>HttpOnly</strong>的作用不是过滤XSS跨站脚本攻击，而是浏览器将禁止页面的JavaScript访问带有<strong>HttpOnly</strong>属性的cookie,解决XSS跨站脚本攻击后的Cookie会话劫持行为</p>
+</li>
+<li><p><strong>HttpOnly</strong>是在Set-Cookie时进行标记的，设置的Cookie头格式如下：<br><img src="https://img-blog.csdnimg.cn/20210322183336920.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDY1MTE1OA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li><p>以php为例，在php 5.2版本时就已经在SetCookie函数加入了对HttpOnly的支持，如：</p>
+<?php
+
+        setcookie("user","admin",NULL,NULL,NULL,NULL,TRUE);
+
+?>
+
+<p>通过以上代码就可以设置user这个cookie，将其设置为HttpOnly,setcookie函数实质是通过向客户端发送原始的HTTP报文头进行设置的，document将不可见这个Cookie，所以使用document.cookie就取不到这个cookie，也就实现了对cookie的保护。</p>
+</li>
+<li><p><strong>输入、输出检查</strong></p>
+<p>由于三种XSS跨站脚本攻击类型的漏洞成因可不相同，针对输入输出的检查一部分适用于反射型XSS与存储型XSS，而另外一些检查适用于基于DOM 的XSS</p>
+<ul>
+<li><p><strong>反射型和存储型XSS输入、输出检查</strong></p>
+<ul>
+<li><p><strong>输入检查</strong></p>
+<p>在大多数的时候都是对可信字符的检查或输入数据格式的检查，如用户输入的注册账号信息中只允许包括字母、数字、下划线和汉字等，对于输入的<strong>一切非白名单</strong>的字符均认为是非法输入。数据格式如输入的IP地址、电话号码、邮件地址、日期等数据都具有一定的格式规范，只有符合数据规范的输入信息才允许通过检查</p>
+<ul>
+<li><p><strong>输出检查</strong></p>
+<p>输出检查主要是针对数据展示过程中，应该对数据信息进行HTML<strong>编码</strong>处理，将可能存在导致XSS跨站脚本攻击的恶意字符进行编码，在不影响正常数据显示的前提条件下，<strong>过滤恶意字符</strong></p>
+</li>
+<li><p>常见的可能造成XSS跨站脚本攻击的字符及其HTML编码如下——<strong>输出检查</strong>：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&quot;    <span class="symbol">&amp;quot;</span></span><br><span class="line">&#x27;    <span class="symbol">&amp;apos;</span></span><br><span class="line">&amp;    <span class="symbol">&amp;amp;</span></span><br><span class="line">&lt;    <span class="symbol">&amp;lt;</span></span><br><span class="line">&gt;    <span class="symbol">&amp;gt;</span></span><br><span class="line">    除了常用的编码外，任何字符都可以使用其ASCLL码进行HTML编码，如</span><br><span class="line">    %    <span class="symbol">&amp;#37;</span></span><br><span class="line">    *    <span class="symbol">&amp;#42;</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>DOM Based XSS 输入、输出检查</strong></p>
+<ul>
+<li><p><strong>特殊性</strong></p>
+<p>基于DOM的XSS跨站脚本攻击发生时，恶意数据的格式与传统的XSS跨站脚本攻击数据格式有一定的差异，甚至可以在<strong>不经过服务器的处理和响应</strong>的情况下，直接对客户端实施攻击行为。</p>
+</li>
+<li><p><strong>输入检查</strong></p>
+<p>在<strong>客户端</strong>部署相应的安全检测代码的过滤效果要比在服务器检测的效果更加明显</p>
+<p>客户端检测代码来保证用户输入的数据只包含字母、数字和空格</p>
+<p>在<strong>服务端</strong>实现上述数据检查的功能</p>
+<ul>
+<li>URL参数名称、个数检测</li>
+<li>参数值类型及内容检测</li>
+</ul>
+</li>
+<li><p><strong>输出检查</strong></p>
+<ul>
+<li>在将用户可控的DOM数据内容插入到文档之前，WEB应用程序应对提交的数据进行HTML编码处理，将用户提交的数据中可能存在的各种危险字符和表达式进行过滤以安全的方式插入到文档进行展示。</li>
+</ul>
+</li>
+</ul>
+<h3 id="工具使用"><a href="#工具使用" class="headerlink" title="工具使用"></a>工具使用</h3><ul>
+<li><p><strong>网站安全狗</strong></p>
+</li>
+<li><p><strong>XSSer</strong></p>
+<p>XSSer简称Cross site ‘scripter’是一款自动化渗透测试XSS漏洞的安全工具，专门用来<strong>检测和利用</strong>不同应用程序中存在的跨站脚本漏洞。它包含了一些选项用来尝试绕过特定的过滤器，并且具有特殊的代码注入技术。</p>
+</li>
+</ul>
+</li>
+</ul>
+
       
     </div>
     
@@ -480,8 +671,8 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/01/17/RBAC/" rel="next" title="RBAC">
-                <i class="fa fa-chevron-left"></i> RBAC
+              <a href="/2021/03/24/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/" rel="next" title="文件上传漏洞">
+                <i class="fa fa-chevron-left"></i> 文件上传漏洞
               </a>
             
           </div>
@@ -490,8 +681,8 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2021/01/18/Leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" rel="prev" title="Leetcode每日一题">
-                Leetcode每日一题 <i class="fa fa-chevron-right"></i>
+              <a href="/2021/03/24/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/" rel="prev" title="命令执行漏洞">
+                命令执行漏洞 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -544,8 +735,17 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -632,6 +832,22 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS"><span class="nav-number">1.</span> <span class="nav-text">XSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">XSS类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%9E%8BXSS"><span class="nav-number">1.2.</span> <span class="nav-text">存储型XSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8D%E5%B0%84%E5%9E%8BXSS"><span class="nav-number">1.3.</span> <span class="nav-text">反射型XSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS%E7%AE%80%E4%BB%8B"><span class="nav-number">1.4.</span> <span class="nav-text">JS简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS%E9%98%B2%E5%BE%A1%E4%B8%8E%E5%8F%91%E7%8E%B0"><span class="nav-number">1.5.</span> <span class="nav-text">XSS防御与发现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#html%E8%BD%AC%E4%B9%89%E5%87%BD%E6%95%B0"><span class="nav-number">1.5.0.1.</span> <span class="nav-text">html转义函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pikachu%E9%9D%B6%E5%9C%BA%E4%B8%8A%E7%9A%84%E6%BC%8F%E6%B4%9E%E7%B1%BB%E5%9E%8B%E5%88%97%E8%A1%A8%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="nav-number">1.6.</span> <span class="nav-text">Pikachu靶场上的漏洞类型列表如下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS%E8%A0%95%E8%99%AB%E6%94%BB%E5%87%BB"><span class="nav-number">1.7.</span> <span class="nav-text">XSS蠕虫攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%96%E6%8E%98XSS%E6%BC%8F%E6%B4%9E%E6%96%B9%E6%B3%95"><span class="nav-number">1.8.</span> <span class="nav-text">挖掘XSS漏洞方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%E6%BC%8F%E6%B4%9E%E9%98%B2%E8%8C%83"><span class="nav-number">1.9.</span> <span class="nav-text">XSS跨站脚本攻击漏洞防范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8"><span class="nav-number">1.10.</span> <span class="nav-text">工具使用</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
