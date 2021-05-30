@@ -336,157 +336,6 @@
       </tags>
   </entry>
   <entry>
-    <title>sql注入</title>
-    <url>/2021/03/24/sql%E6%B3%A8%E5%85%A5/</url>
-    <content><![CDATA[<h2 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h2><pre><code>SQL注入攻击就是攻击者把SQL命令插入到web表单的输入域（比如登录页面或查询框）与或页面请求的查询字符串，欺骗服务器执行恶意的SQL命令。</code></pre>
-<p>比如select * from user where id=1**‘ or 1=’**1 ——万能密码<br><img src="https://img-blog.csdnimg.cn/2021032218370159.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDY1MTE1OA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<h4 id="SQL注入万能密码"><a href="#SQL注入万能密码" class="headerlink" title="SQL注入万能密码"></a>SQL注入万能密码</h4><p><img src="https://img-blog.csdnimg.cn/20210322183719172.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDY1MTE1OA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p><strong>查询数据库分类</strong></p>
-<ul>
-<li><strong>数字型注入</strong>（select * from users where id=  <strong>x</strong>)</li>
-<li><strong>字符型注入</strong>    (select * from users where id =  <strong>‘x’</strong>)</li>
-<li><strong>搜索型注入</strong>    (select * from database.table where users like ‘<strong>%要查询的关键字%’</strong>)</li>
-</ul>
-<p><strong>分类</strong></p>
-<p><strong>数据提交方式</strong></p>
-<ul>
-<li>get注入</li>
-<li>post注入</li>
-<li>http头部注入（user-agent、cookie、referer、host)</li>
-</ul>
-<p><strong>其余</strong></p>
-<p>还有一些常见的数据库注入类型；报错注入、盲注、延时注入、宽字节注入、二次注入、堆叠注入等</p>
-<p><strong>SQL注入的危害</strong></p>
-<ol>
-<li>攻击者未经授权可以访问数据库中的数据，盗取用户的隐私以及个人信息，造成用户的信息泄露、</li>
-<li>可以对数据库的数据进行增加或删除操作，例如私自添加或删除管理员账户</li>
-<li>如果网站目录存在写入权限，可以写入网页木马。攻击者进而可以对网页进行篡改，发布一些违规信息等</li>
-<li>经过提权等步骤，服务器最高权限被攻击者获取。攻击者可以远程控制服务器，安装后门，得以修改或控制操作系统。</li>
-</ol>
-<h4 id="自动化注入工具"><a href="#自动化注入工具" class="headerlink" title="自动化注入工具"></a>自动化注入工具</h4><p><strong>Havij</strong></p>
-<p>是一款自动化的SQL注入工具，它能够帮助渗透测试人员发现和利用web应用程序的SQL注入漏洞。Havij不仅能够自动挖掘可利用的 SQL查询，还能够识别后台数据库类型、检索数据的用户名和密码hash、转储表和列、从数据库中提取数据，甚至访问底层文件系统和执行系统命令，当然前提是有一个可利用的SQL注入漏洞。Havij支持广泛的数据库系统，如MsSQL，Mysql，MSAccess and Oracle。Havij支持参数配置以躲避IDS，支持代理，后台登录地址扫描。</p>
-<p><strong>Sqlmap</strong></p>
-<p>是一个自动SQL注入工具其可胜任执行一个广泛数据库管理系统后端指纹，检索DBMS数据库，usernames、表格、列、并列举整个DBMS信息。sqlmap提供转储数据库表以及Mysql、PostgreSQL、SQL Server服务器下载或上传任何文件并执行任意代码的能力</p>
-<p><strong>The Mole</strong></p>
-<p>是一款开源的 自动化SQL注入工具，其可绕过IPS/IDS(入侵防御系统/入侵检测系统)/只需提供一个URL和一个可用的关键字，他就能检测诸如点并利用。The Mole可以使用union注入技术和基于逻辑查询的注入技术。The Mole攻击范围包括SQL Server、MySQL、Postgres和Oracle数据库。</p>
-<h3 id="手动注入的过程"><a href="#手动注入的过程" class="headerlink" title="手动注入的过程"></a>手动注入的过程</h3><ul>
-<li>判断是否存在注入点 and 1=1和and 1=2或者单引号</li>
-<li>判断字段长度 通过order by 长度一般是5开始</li>
-<li>判断字段回显位置 使用union select  1,2,3,4字段长度</li>
-<li>拿数据（库表字段数据）比如version() 、database()、table_name    table_schema</li>
-</ul>
-<p>group_concat(table_name,password)</p>
-<h3 id="手工暴错注入"><a href="#手工暴错注入" class="headerlink" title="手工暴错注入"></a>手工暴错注入</h3><p>updatexml(1,concat(0x7e </p>
-<h3 id="盲注-就是不断尝试、猜想"><a href="#盲注-就是不断尝试、猜想" class="headerlink" title="盲注(就是不断尝试、猜想)"></a>盲注(就是不断尝试、猜想)</h3><p><strong>盲注函数</strong></p>
-<p><strong>MID(column_name,start[,length])</strong></p>
-<p><strong>string substr(string,start,length)</strong></p>
-<p><strong>Left(string,n)</strong></p>
-<p>比如 id=1’ and left(version(),1)=5–+</p>
-<h3 id="攻击特征"><a href="#攻击特征" class="headerlink" title="攻击特征"></a>攻击特征</h3><h4 id="注释符"><a href="#注释符" class="headerlink" title="注释符"></a>注释符</h4><ul>
-<li><p><strong>#</strong></p>
-</li>
-<li><p><strong>–</strong></p>
-</li>
-<li><p><strong>/</strong>/**</p>
-</li>
-<li><p><strong>#</strong></p>
-</li>
-<li><p><strong>–+</strong></p>
-</li>
-</ul>
-<p>防护工具——<strong>安全狗</strong></p>
-<h3 id="防护措施"><a href="#防护措施" class="headerlink" title="防护措施"></a>防护措施</h3><ul>
-<li><p>严格限制web应用的数据库的操作权限，给此用户提供仅仅能够满足其工作的最低权限，从而最大限度的减少注入攻击对数据库的危害。</p>
-</li>
-<li><p>检查输入的数据是否具有所期望的数据格式，严格限制变量的类型</p>
-</li>
-<li><p>对进入数据库的特殊字符(“  ‘  \ 尖括号 &amp; *；等   “)进入转义处理，或编码转换</p>
-<p>text/template包里面的HTMLEscapeString函数可以对字符串进行转义处理。</p>
-</li>
-<li><p>所有的查询语句建议使用数据库提供的参数化查询接口，参数化的语句使用参数而不是将用户输入变量嵌入到SQL语句中，既不要直接拼接SQL语句</p>
-</li>
-<li><p>在应用发布之前建议使用专业的SQL注入检测工具进行检测，以及时修补被发现的SQL注入漏洞。网上有很多这方面的开源工具，例如sqlmap等</p>
-</li>
-<li><p>避免网站打印出SQL错误信息，比如类型错误、字段不匹配等，把代码里的SQL语句暴露出来，以防止攻击者利用这些错误信息进行SQL注入</p>
-<h3 id="注入工具介绍"><a href="#注入工具介绍" class="headerlink" title="注入工具介绍"></a>注入工具介绍</h3><p><strong>sqlmap</strong></p>
-</li>
-</ul>
-<p>sqlmap是一个开源的渗透工具，它可以自动化检测和利用SQL注入缺陷以及接管数据库服务器的过程。他有一个强大的检测引擎，许多适合于终极渗透测试的小众特性和广泛的开关，从数据库指纹、从数据库获取数据到访问底层文件系统和通过带外连接在操作系统上执行命令。</p>
-<h3 id="SQL注入的参数"><a href="#SQL注入的参数" class="headerlink" title="SQL注入的参数"></a>SQL注入的参数</h3><ul>
-<li><p>-u  #注入点</p>
-</li>
-<li><p>-g  谷歌搜索</p>
-</li>
-<li><p>-f  #指纹判别数据库版本信息</p>
-</li>
-<li><p>-p  #指定可测试的参数(?page=1 &amp; id=2 -p “page,id”)</p>
-</li>
-<li><p>-D “ ” #指定数据库名</p>
-</li>
-<li><p>-T  “ “#指定表名</p>
-</li>
-<li><p>-C   “ ” #指定字段</p>
-</li>
-<li><p>-s   “ ”  #保存注入过程到一个文件，还可中断，下次恢复在注入（保存：-s”xx.log”    恢复：-s “xx.log” -resume)</p>
-</li>
-<li><p>-columns  #列出字段</p>
-</li>
-<li><p>-current -user   #获取当前用户名称</p>
-</li>
-<li><p>-current -db      #获取当前数据库名称</p>
-</li>
-<li><p>-users  # 列数据库所有用户</p>
-</li>
-<li><p>-passwords  #数据库用户所有密码</p>
-</li>
-<li><p>-privileges  #查看用户权限(-privileges -U root)</p>
-</li>
-<li><p>-U  #指定数据库用户</p>
-</li>
-<li><p>-dbs  #列出所有数据库</p>
-</li>
-<li><p>-tables -D  “ “ #列出指定数据库中的表</p>
-</li>
-<li><p>-columns -T “user” -D  “mysql”  #列出mysql数据库中的user表中的所有字段</p>
-</li>
-<li><p>-dump-all  #列出所有数据库所有表</p>
-</li>
-<li><p>-exclude -sysdbs  #只列出用户自己新建的数据库和表</p>
-</li>
-<li><p>-dump -T “ “ -D “ “ -C  ” “  #列出指定数据库的表的字段的数据(-dump -T users -D master -C surname)</p>
-</li>
-<li><p>-dump -T “” -D -start 2 -top 4  #列出指定数据库的表的2-4字段的数据</p>
-<ul>
-<li>-dbms #指定数据库(MySQL，Oracle，PostgreSQL,Microsoft SQL，Microsoft Access,SQLite,Firebird,Sybase,SAP MaxDB)</li>
-</ul>
-</li>
-<li><p>-os  #指定系统（Linux，Windows）</p>
-</li>
-<li><p>–sql -shell 写shell</p>
-</li>
-<li><p>–delay 延迟时间</p>
-</li>
-<li><p>-m  可以执行多个url</p>
-</li>
-<li><p>–level 3 –risk 5等级</p>
-</li>
-<li><p>sqlmap -u http;//<a href="http://www.evil0x.com/test.php%E2%9D%93p=2">www.evil0x.com/test.php❓p=2</a> -f -b -current -user</p>
-</li>
-<li><p>-currernt-db -v 1</p>
-</li>
-<li><p>sqlmap -u http;//<a href="http://www.evil0x.com/test.php%E2%9D%93p=2">www.evil0x.com/test.php❓p=2</a> -dbs -v 2</p>
-</li>
-<li><p>sqlmap  -u http;//<a href="http://www.evil0x.com/test.php%E2%9D%93p=2">www.evil0x.com/test.php❓p=2</a> -dump -D mysql -T</p>
-</li>
-<li><p>users -C ‘’username,password’ -s ‘’sqlnmapdb.log’’ -v 2</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>sql注入</category>
-      </categories>
-  </entry>
-  <entry>
     <title>xss漏洞</title>
     <url>/2021/03/24/xss%E6%BC%8F%E6%B4%9E/</url>
     <content><![CDATA[<h2 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h2><p>简介</p>
@@ -699,6 +548,157 @@
 </li>
 </ul>
 ]]></content>
+  </entry>
+  <entry>
+    <title>sql注入</title>
+    <url>/2021/03/24/sql%E6%B3%A8%E5%85%A5/</url>
+    <content><![CDATA[<h2 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h2><pre><code>SQL注入攻击就是攻击者把SQL命令插入到web表单的输入域（比如登录页面或查询框）与或页面请求的查询字符串，欺骗服务器执行恶意的SQL命令。</code></pre>
+<p>比如select * from user where id=1**‘ or 1=’**1 ——万能密码<br><img src="https://img-blog.csdnimg.cn/2021032218370159.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDY1MTE1OA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h4 id="SQL注入万能密码"><a href="#SQL注入万能密码" class="headerlink" title="SQL注入万能密码"></a>SQL注入万能密码</h4><p><img src="https://img-blog.csdnimg.cn/20210322183719172.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDY1MTE1OA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p><strong>查询数据库分类</strong></p>
+<ul>
+<li><strong>数字型注入</strong>（select * from users where id=  <strong>x</strong>)</li>
+<li><strong>字符型注入</strong>    (select * from users where id =  <strong>‘x’</strong>)</li>
+<li><strong>搜索型注入</strong>    (select * from database.table where users like ‘<strong>%要查询的关键字%’</strong>)</li>
+</ul>
+<p><strong>分类</strong></p>
+<p><strong>数据提交方式</strong></p>
+<ul>
+<li>get注入</li>
+<li>post注入</li>
+<li>http头部注入（user-agent、cookie、referer、host)</li>
+</ul>
+<p><strong>其余</strong></p>
+<p>还有一些常见的数据库注入类型；报错注入、盲注、延时注入、宽字节注入、二次注入、堆叠注入等</p>
+<p><strong>SQL注入的危害</strong></p>
+<ol>
+<li>攻击者未经授权可以访问数据库中的数据，盗取用户的隐私以及个人信息，造成用户的信息泄露、</li>
+<li>可以对数据库的数据进行增加或删除操作，例如私自添加或删除管理员账户</li>
+<li>如果网站目录存在写入权限，可以写入网页木马。攻击者进而可以对网页进行篡改，发布一些违规信息等</li>
+<li>经过提权等步骤，服务器最高权限被攻击者获取。攻击者可以远程控制服务器，安装后门，得以修改或控制操作系统。</li>
+</ol>
+<h4 id="自动化注入工具"><a href="#自动化注入工具" class="headerlink" title="自动化注入工具"></a>自动化注入工具</h4><p><strong>Havij</strong></p>
+<p>是一款自动化的SQL注入工具，它能够帮助渗透测试人员发现和利用web应用程序的SQL注入漏洞。Havij不仅能够自动挖掘可利用的 SQL查询，还能够识别后台数据库类型、检索数据的用户名和密码hash、转储表和列、从数据库中提取数据，甚至访问底层文件系统和执行系统命令，当然前提是有一个可利用的SQL注入漏洞。Havij支持广泛的数据库系统，如MsSQL，Mysql，MSAccess and Oracle。Havij支持参数配置以躲避IDS，支持代理，后台登录地址扫描。</p>
+<p><strong>Sqlmap</strong></p>
+<p>是一个自动SQL注入工具其可胜任执行一个广泛数据库管理系统后端指纹，检索DBMS数据库，usernames、表格、列、并列举整个DBMS信息。sqlmap提供转储数据库表以及Mysql、PostgreSQL、SQL Server服务器下载或上传任何文件并执行任意代码的能力</p>
+<p><strong>The Mole</strong></p>
+<p>是一款开源的 自动化SQL注入工具，其可绕过IPS/IDS(入侵防御系统/入侵检测系统)/只需提供一个URL和一个可用的关键字，他就能检测诸如点并利用。The Mole可以使用union注入技术和基于逻辑查询的注入技术。The Mole攻击范围包括SQL Server、MySQL、Postgres和Oracle数据库。</p>
+<h3 id="手动注入的过程"><a href="#手动注入的过程" class="headerlink" title="手动注入的过程"></a>手动注入的过程</h3><ul>
+<li>判断是否存在注入点 and 1=1和and 1=2或者单引号</li>
+<li>判断字段长度 通过order by 长度一般是5开始</li>
+<li>判断字段回显位置 使用union select  1,2,3,4字段长度</li>
+<li>拿数据（库表字段数据）比如version() 、database()、table_name    table_schema</li>
+</ul>
+<p>group_concat(table_name,password)</p>
+<h3 id="手工暴错注入"><a href="#手工暴错注入" class="headerlink" title="手工暴错注入"></a>手工暴错注入</h3><p>updatexml(1,concat(0x7e </p>
+<h3 id="盲注-就是不断尝试、猜想"><a href="#盲注-就是不断尝试、猜想" class="headerlink" title="盲注(就是不断尝试、猜想)"></a>盲注(就是不断尝试、猜想)</h3><p><strong>盲注函数</strong></p>
+<p><strong>MID(column_name,start[,length])</strong></p>
+<p><strong>string substr(string,start,length)</strong></p>
+<p><strong>Left(string,n)</strong></p>
+<p>比如 id=1’ and left(version(),1)=5–+</p>
+<h3 id="攻击特征"><a href="#攻击特征" class="headerlink" title="攻击特征"></a>攻击特征</h3><h4 id="注释符"><a href="#注释符" class="headerlink" title="注释符"></a>注释符</h4><ul>
+<li><p><strong>#</strong></p>
+</li>
+<li><p><strong>–</strong></p>
+</li>
+<li><p><strong>/</strong>/**</p>
+</li>
+<li><p><strong>#</strong></p>
+</li>
+<li><p><strong>–+</strong></p>
+</li>
+</ul>
+<p>防护工具——<strong>安全狗</strong></p>
+<h3 id="防护措施"><a href="#防护措施" class="headerlink" title="防护措施"></a>防护措施</h3><ul>
+<li><p>严格限制web应用的数据库的操作权限，给此用户提供仅仅能够满足其工作的最低权限，从而最大限度的减少注入攻击对数据库的危害。</p>
+</li>
+<li><p>检查输入的数据是否具有所期望的数据格式，严格限制变量的类型</p>
+</li>
+<li><p>对进入数据库的特殊字符(“  ‘  \ 尖括号 &amp; *；等   “)进入转义处理，或编码转换</p>
+<p>text/template包里面的HTMLEscapeString函数可以对字符串进行转义处理。</p>
+</li>
+<li><p>所有的查询语句建议使用数据库提供的参数化查询接口，参数化的语句使用参数而不是将用户输入变量嵌入到SQL语句中，既不要直接拼接SQL语句</p>
+</li>
+<li><p>在应用发布之前建议使用专业的SQL注入检测工具进行检测，以及时修补被发现的SQL注入漏洞。网上有很多这方面的开源工具，例如sqlmap等</p>
+</li>
+<li><p>避免网站打印出SQL错误信息，比如类型错误、字段不匹配等，把代码里的SQL语句暴露出来，以防止攻击者利用这些错误信息进行SQL注入</p>
+<h3 id="注入工具介绍"><a href="#注入工具介绍" class="headerlink" title="注入工具介绍"></a>注入工具介绍</h3><p><strong>sqlmap</strong></p>
+</li>
+</ul>
+<p>sqlmap是一个开源的渗透工具，它可以自动化检测和利用SQL注入缺陷以及接管数据库服务器的过程。他有一个强大的检测引擎，许多适合于终极渗透测试的小众特性和广泛的开关，从数据库指纹、从数据库获取数据到访问底层文件系统和通过带外连接在操作系统上执行命令。</p>
+<h3 id="SQL注入的参数"><a href="#SQL注入的参数" class="headerlink" title="SQL注入的参数"></a>SQL注入的参数</h3><ul>
+<li><p>-u  #注入点</p>
+</li>
+<li><p>-g  谷歌搜索</p>
+</li>
+<li><p>-f  #指纹判别数据库版本信息</p>
+</li>
+<li><p>-p  #指定可测试的参数(?page=1 &amp; id=2 -p “page,id”)</p>
+</li>
+<li><p>-D “ ” #指定数据库名</p>
+</li>
+<li><p>-T  “ “#指定表名</p>
+</li>
+<li><p>-C   “ ” #指定字段</p>
+</li>
+<li><p>-s   “ ”  #保存注入过程到一个文件，还可中断，下次恢复在注入（保存：-s”xx.log”    恢复：-s “xx.log” -resume)</p>
+</li>
+<li><p>-columns  #列出字段</p>
+</li>
+<li><p>-current -user   #获取当前用户名称</p>
+</li>
+<li><p>-current -db      #获取当前数据库名称</p>
+</li>
+<li><p>-users  # 列数据库所有用户</p>
+</li>
+<li><p>-passwords  #数据库用户所有密码</p>
+</li>
+<li><p>-privileges  #查看用户权限(-privileges -U root)</p>
+</li>
+<li><p>-U  #指定数据库用户</p>
+</li>
+<li><p>-dbs  #列出所有数据库</p>
+</li>
+<li><p>-tables -D  “ “ #列出指定数据库中的表</p>
+</li>
+<li><p>-columns -T “user” -D  “mysql”  #列出mysql数据库中的user表中的所有字段</p>
+</li>
+<li><p>-dump-all  #列出所有数据库所有表</p>
+</li>
+<li><p>-exclude -sysdbs  #只列出用户自己新建的数据库和表</p>
+</li>
+<li><p>-dump -T “ “ -D “ “ -C  ” “  #列出指定数据库的表的字段的数据(-dump -T users -D master -C surname)</p>
+</li>
+<li><p>-dump -T “” -D -start 2 -top 4  #列出指定数据库的表的2-4字段的数据</p>
+<ul>
+<li>-dbms #指定数据库(MySQL，Oracle，PostgreSQL,Microsoft SQL，Microsoft Access,SQLite,Firebird,Sybase,SAP MaxDB)</li>
+</ul>
+</li>
+<li><p>-os  #指定系统（Linux，Windows）</p>
+</li>
+<li><p>–sql -shell 写shell</p>
+</li>
+<li><p>–delay 延迟时间</p>
+</li>
+<li><p>-m  可以执行多个url</p>
+</li>
+<li><p>–level 3 –risk 5等级</p>
+</li>
+<li><p>sqlmap -u http;//<a href="http://www.evil0x.com/test.php%E2%9D%93p=2">www.evil0x.com/test.php❓p=2</a> -f -b -current -user</p>
+</li>
+<li><p>-currernt-db -v 1</p>
+</li>
+<li><p>sqlmap -u http;//<a href="http://www.evil0x.com/test.php%E2%9D%93p=2">www.evil0x.com/test.php❓p=2</a> -dbs -v 2</p>
+</li>
+<li><p>sqlmap  -u http;//<a href="http://www.evil0x.com/test.php%E2%9D%93p=2">www.evil0x.com/test.php❓p=2</a> -dump -D mysql -T</p>
+</li>
+<li><p>users -C ‘’username,password’ -s ‘’sqlnmapdb.log’’ -v 2</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>sql注入</category>
+      </categories>
   </entry>
   <entry>
     <title>使用Hexo搭建个人博客</title>
