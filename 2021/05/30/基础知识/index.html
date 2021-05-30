@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<script type="text/javascript"
+color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jianier's blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="开源  黑客  骇客  白帽子  灰帽子  脚本(asp、php、jsp)  HTML(css、js、HTML)是标记语言不是编程语言  架构  CMS：内容管理系统  MD5在线加密  肉鸡：被黑客入侵并长期控制的计算机或服务器  抓鸡：利用使用量大的程序漏洞，使用自动化方式获取肉鸡的行为  webshell  端口服务    服务 端口    FTP(文件传输) 21   Telnet远程登">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基础知识">
+<meta property="og:url" content="https://jianier.github.io/2021/05/30/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:site_name" content="Jianier&#39;s blog">
+<meta property="og:description" content="开源  黑客  骇客  白帽子  灰帽子  脚本(asp、php、jsp)  HTML(css、js、HTML)是标记语言不是编程语言  架构  CMS：内容管理系统  MD5在线加密  肉鸡：被黑客入侵并长期控制的计算机或服务器  抓鸡：利用使用量大的程序漏洞，使用自动化方式获取肉鸡的行为  webshell  端口服务    服务 端口    FTP(文件传输) 21   Telnet远程登">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://nmgfrank.com/wp-content/uploads/2015/07/keep_login-300x131.png">
+<meta property="article:published_time" content="2021-05-30T09:03:34.000Z">
+<meta property="article:modified_time" content="2021-05-30T09:03:53.383Z">
+<meta property="article:author" content="Yao Jiaying">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://nmgfrank.com/wp-content/uploads/2015/07/keep_login-300x131.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://jianier.github.io/2021/05/30/基础知识/"/>
+
+
+
+
+
+  <title>基础知识 | Jianier's blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a target="_blank" rel="noopener" href="https://github.com/jianier" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jianier's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">在bug中收获知识</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jianier.github.io/2021/05/30/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/%5Bobject%20Object%5D">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jianier's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">基础知识</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-05-30T17:03:34+08:00">
+                2021-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  6.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  22
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li><p><strong>开源</strong></p>
+</li>
+<li><p><strong>黑客</strong></p>
+</li>
+<li><p><strong>骇客</strong></p>
+</li>
+<li><p><strong>白帽子</strong></p>
+</li>
+<li><p><strong>灰帽子</strong></p>
+</li>
+<li><p><strong>脚本(asp、php、jsp)</strong></p>
+</li>
+<li><p><strong>HTML(css、js、HTML)是标记语言不是编程语言</strong></p>
+</li>
+<li><p><strong>架构</strong></p>
+</li>
+<li><p><strong>CMS：内容管理系统</strong></p>
+</li>
+<li><p><strong>MD5在线加密</strong></p>
+</li>
+<li><p><strong>肉鸡</strong>：被黑客入侵并长期控制的计算机或服务器</p>
+</li>
+<li><p><strong>抓鸡</strong>：利用使用量大的程序漏洞，使用自动化方式获取肉鸡的行为</p>
+</li>
+<li><p><strong>webshell</strong></p>
+</li>
+<li><p><strong>端口服务</strong></p>
+<table>
+<thead>
+<tr>
+<th>服务</th>
+<th>端口</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FTP(文件传输)</td>
+<td>21</td>
+</tr>
+<tr>
+<td>Telnet远程登陆</td>
+<td>23</td>
+</tr>
+<tr>
+<td>SOCKS代理协议服务器</td>
+<td>1080</td>
+</tr>
+<tr>
+<td>HTTP</td>
+<td>80/8080/3128/8081/9098</td>
+</tr>
+<tr>
+<td>HTTPS</td>
+<td>443</td>
+</tr>
+<tr>
+<td>POP3</td>
+<td>110</td>
+</tr>
+<tr>
+<td>TFTP</td>
+<td>69</td>
+</tr>
+<tr>
+<td>SSH(安全登录)、SCP(文件传输)、端口重定向</td>
+<td>22</td>
+</tr>
+<tr>
+<td>JBOSS</td>
+<td>8080</td>
+</tr>
+<tr>
+<td>TOMCAT</td>
+<td>8080</td>
+</tr>
+<tr>
+<td>WIN2003</td>
+<td>3389</td>
+</tr>
+<tr>
+<td>ORACLE数据库</td>
+<td>1521</td>
+</tr>
+<tr>
+<td>SQL server</td>
+<td>1433</td>
+</tr>
+<tr>
+<td>SMTP</td>
+<td>25</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong>相对路径和绝对路径</strong></p>
+<p>绝对路径；是指文件在硬盘上真正存在的路径。</p>
+<p>绝对路径的缺点； 事实上，在网页编程时，很少会使用绝对路径，如果使用“E:\book\网页布\代码\第2章\bg.jpg”来指定背景图片的位置，在自己的计算机上 浏览可能会一切正常，但是上传到Web服务器上浏览就很有可能不会显示图片了。因为上传到Web服务器上时，可能整个网站并没有放在Web服务器的E盘， 有可能是D盘或H盘。即使放在Web服务器的E盘里，Web服务器的E盘里也不一定会存在“E:\book\网页布局\代码\第2章”这个目录，因此在浏 览网页时是不会显示图片的。</p>
+<p>相对路径，就是相对于自己的目标文件位置。</p>
+<p><strong>注意：</strong></p>
+<ol>
+<li>相对路径使用“/”字符作为目录的分隔字符，而绝对路径可以使用“\”或“/”字符作为目录的分隔字符。</li>
+<li>在 相对路径里常使用“../”来表示上一级目录。</li>
+</ol>
+</li>
+<li><p><strong>漏洞</strong>：硬件、软件、协议等等可利用安全缺陷，可能被攻击者利用，对数据进行篡改，控制等</p>
+</li>
+<li><p><strong>端口</strong>；端口可分为虚拟和物理端口。</p>
+<p><strong>虚拟端口</strong>指计算机内部或交换机路由器内的端口，不可见。例如计算机中的80端口、21端口等</p>
+<p><strong>物理端口</strong>又称为接口，是可见端口，计算机背板的RJ45网口等</p>
+</li>
+<li><p><strong>网关</strong>(应用层）：网关(Gateway)又称<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%BD%91%E9%97%B4%E8%BF%9E%E6%8E%A5%E5%99%A8/2943752">网间连接器</a>、协议转换器。默认网关在<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C">网络</a>层以上实现网络互连，是最复杂的网络互连设备，仅用于两个高层协议不同的网络互连。网关的结构也和<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%B7%AF%E7%94%B1%E5%99%A8">路由器</a>类似，不同的是互连层。网关既可以用于<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%B9%BF%E5%9F%9F%E7%BD%91">广域网</a>互连，也可以用于<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%B1%80%E5%9F%9F%E7%BD%91">局域网</a>互连 。</p>
+</li>
+<li><p><strong>跳板</strong>；简单的来说，就是为了隐藏自己的地址，使用以及被控制的机器来攻击其他目标，让别人无法查找到自己的位置</p>
+</li>
+<li><p><strong>旁站</strong>：即同服务器下的网站</p>
+</li>
+<li><p><strong>旁站入侵</strong>：即同服务器下的网站入侵，入侵之后可以通过提权跨目录等手段拿到目标网站的权限</p>
+</li>
+<li><p><strong>C段</strong>；比如；1.1.1.1，最后一个是C段  如1.1.10/1.1.1.255这个C段有255个B 段有65535个 </p>
+</li>
+<li><p><strong>IP地址中的保留地址</strong>：</p>
+</li>
+<li><p>区分为<strong>静态</strong>和<strong>动态DHCP</strong>(动态主机配置协议)</p>
+</li>
+<li><p>**动态DHCP(动态主机配置协议)**：是一个局域网的网络协议，指的是有服务器控制一段IP地址范围，客户机登录服务器时就可以自动获得服务器分配的IP地址和子网掩码。</p>
+</li>
+<li><p><strong>服务</strong></p>
+</li>
+<li><p><strong>权限</strong></p>
+</li>
+<li><p><strong>批处理文件</strong></p>
+</li>
+<li><p><strong>渗透测试</strong></p>
+</li>
+<li><p><strong>APT攻击</strong></p>
+<p>即高级可持续威胁攻击，也称为定向威胁攻击，指某组织对特定对象展开的持续有效的公祭活动。这种公祭活动具有极强的隐蔽性和针对性，通常会运用受感染的各种介质、供应链和社会工程学等多种手段实施先进 的、持续性且有效的威胁和攻击</p>
+<ul>
+<li>极强的隐蔽性</li>
+<li>潜伏期长、持续性强</li>
+<li>目标性强</li>
+</ul>
+</li>
+<li><p><strong>EXP 、  POC  、VPS</strong></p>
+<p>exp攻击   poc检测  ping vps 跳板机</p>
+</li>
+<li><p><strong>HTTP常见的14种状态码大全</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>类别</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1XX</td>
+<td>Information(信息性状态码)</td>
+<td>接受的请求正在处理</td>
+</tr>
+<tr>
+<td>2XX</td>
+<td>Success(成功状态码)</td>
+<td>请求正常处理完毕</td>
+</tr>
+<tr>
+<td>3XX</td>
+<td>Redirection(重定向状态码)</td>
+<td>需要进行附加操作以完成请求</td>
+</tr>
+<tr>
+<td>4XX</td>
+<td>Client Error(客户端错误状态码)</td>
+<td>服务器无法处理请求</td>
+</tr>
+<tr>
+<td>5XX</td>
+<td>Server Error(服务器错误状态码)</td>
+<td>服务器处理请求出错</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>400</td>
+<td>客户端请求的语法错误，服务器无法理解</td>
+</tr>
+<tr>
+<td>401</td>
+<td>请求要求用户的身份证认证</td>
+</tr>
+<tr>
+<td>403</td>
+<td>服务器理解请求客户端的请求，但是拒绝执行此请求</td>
+</tr>
+<tr>
+<td>404</td>
+<td>服务器无法根据客户端的请求找到资源(网页)。</td>
+</tr>
+<tr>
+<td>405</td>
+<td>客户端请求中的方法被禁止</td>
+</tr>
+<tr>
+<td>500</td>
+<td>服务器内部错误，无法完成请求</td>
+</tr>
+<tr>
+<td>501</td>
+<td>服务器不支持请求的功能，无法完成请求</td>
+</tr>
+<tr>
+<td>201</td>
+<td>请求已经被实现，而且有一个新的资源已经依据请求的需要而建立，且其URI已经随location头信息返回。</td>
+</tr>
+<tr>
+<td>300</td>
+<td>被请求的资源有一系列可供选择的回馈信息，每个都有自己特定的地址和浏览器驱动的商议信息。</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong>静态网站</strong>；是指全部由HTML代码格式页面组成的网站，所有的内容包含在网页文件中。网页上也可以出现各种</p>
+</li>
+<li><p><strong>动态网站</strong>；并不是指具有动画功能的网站，而是指网站内容可根据不同情况动态变更的网站，一般情况下动态网站通过数据库进行架构。</p>
+<p>动态网站体现在一般是以asp、jsp  php aspx等技术，静态网站一般是以HTML结尾</p>
+</li>
+<li><p><strong>伪静态网站</strong>；</p>
+<p>伪静态是相对于真实静态而言的，通常我们为了增强搜索引擎的友好面，都将文章内容生成静态页面，但是有的朋友为了实时的显示一些信息，或者还想运用动态脚本解决一些问题。</p>
+<p><strong>本质就是URL重写方式，写的看起来是个静态页面，并不是真的静态。</strong></p>
+</li>
+<li><p><strong>ARP欺骗</strong>–》回应每个请求。</p>
+</li>
+<li><p>![](C:\Users\Administrator\Pictures\Camera Roll\网络七层.jpg)</p>
+</li>
+</ul>
+<h2 id="Burp-Suite中intruder爆破模块四种模式的区别"><a href="#Burp-Suite中intruder爆破模块四种模式的区别" class="headerlink" title="Burp Suite中intruder爆破模块四种模式的区别"></a>Burp Suite中intruder爆破模块四种模式的区别</h2><ol>
+<li><p><strong>Sniper狙击手</strong></p>
+<p>顾名思义就是一个一个的来，添加了一个参数的话，并且假设payload有500个的话，那就执行500次</p>
+<p>如果添加了两个参数的话，就会挨着来，第一个参数开始爆破时，第二个不变，如此如此，会进行500+500此  总共1000次爆破</p>
+</li>
+<li><p><strong>Battering ram 攻城锤</strong></p>
+<p>顾名思义，和狙击手差不多，一个参数的话都一样，只不过如果添加了两个参数的话，就一起进行爆破。那么两个参数爆破时候的值肯定就是一样的了。那么就只会进行500次爆破。</p>
+</li>
+<li><p><strong>Pitchfork 草叉模式</strong></p>
+<p>此模式下如果只添加了一个参数的话，会报错</p>
+<p>添加了两个参数的话，要求添加两个payload</p>
+<p>pl 1，2</p>
+<p>pl  3，4</p>
+<p>那么第一次爆破为1，3</p>
+<p>而第二次爆破为2，4</p>
+<p>如果两个payload行数不一致的话，<strong>取最小值进行测试。所以爆破的次数取两个中最小的为准</strong>。</p>
+</li>
+<li><p><strong>Cluster bomb集束炸弹</strong></p>
+<p>同pitchfork，起码两个参数，但此操作会计算两个的payload的<strong>笛卡尔积</strong></p>
+<p>比如；pl 1,2,3</p>
+<p>pl2 4,5,6</p>
+<p>那么第一次爆破为1，4</p>
+<p>第二次为1，5</p>
+<p>以此类推 1，6</p>
+<p>2，4</p>
+<p>2，5。。。。。</p>
+</li>
+</ol>
+<ul>
+<li><p><strong>IP地址中的保留地址</strong></p>
+<p>区分A类 和A段</p>
+<p><strong>保留地址的分配</strong></p>
+<p>互联网上的IP地址统一由一个叫IANA(Internet Assigned Numbers Authority互联网网络号分配机构)的组织来管理。根据用途和安全性级别的不同，IP地址还可以大致分为两类：<strong>公有地址</strong>和<strong>私有地址</strong>。<strong>公有地址在Internet中使用</strong>，可以在Internet中随意访问。<strong>私有地址只能在内部网络中使用</strong>，只有通过代理服务器才能与Internet通信。</p>
+<p>一个机构网络要连入Internet，必须申请公用IP地址。但是考虑到网络安全和内部实验等特殊情况，在IP地址中专门保留了三个区域作为私有地址，其地址范围如下：</p>
+<table>
+<thead>
+<tr>
+<th>网络类别</th>
+<th>IP地址范围</th>
+<th>网络数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a类网</td>
+<td>10.0.0.0~10.255.255.255</td>
+<td>1</td>
+</tr>
+<tr>
+<td>b类网</td>
+<td>172.16.0.0~172.31.255.255</td>
+<td>16</td>
+</tr>
+<tr>
+<td>c类网</td>
+<td>192.168.0.0~192.168.255.255</td>
+<td>255</td>
+</tr>
+</tbody></table>
+<p>使用保留地址的网络只能在内部进行通信，而不能与其他网络互连。因为本网络中的保留地址同样也可能被其他网络使用，如果进行网络互连，那么寻找路由就会因为地址不唯一而出现问题。但是这些使用保留地址的网络可以通过将本网络内的保留地址翻译转换成公共地址的方式实现与外部网络的互连。这也是保证网络安全的重要方法之一。</p>
+<p>保留的IP地址段不会在互联网上使用，因此与广域网相连的路由器在处理保留IP地址时，只是想该数据包丢弃处理，而不会路由到广域网上去，从而将保留地址产生的数据隔离在局域网内部。</p>
+<p><strong>特殊的IP地址</strong></p>
+<ol>
+<li><p><strong>0.0.0.0</strong></p>
+<p>严格说来，0.0.0.0已经不是一个真正意义上的IP地址了。他表示的是这样的一个集合；所有不清楚的主机和目的网络。这里的’不清楚‘’是指在本机的路由表里没有特定条目指明如何到达。对本机来说，他就是一个‘收容所’‘，所有不认识的’‘三无’‘人员，一律送进去。如果你在网络设置中设置了缺省网关，那么Windows系统会自动产生一个目的地址为0.0.0.0的缺省路径。</p>
+</li>
+<li><p><strong>255.255.255.255</strong></p>
+<p>限制广播路径。对本机来说，这个地址指本网段内–同一广播域内的所有主机。如果翻译成人类的语言，应该是这样’‘这个房间里的所有人都注意了这个地址不能被路由器转发</p>
+</li>
+<li><p><strong>127.0.0.1</strong></p>
+<p>本机地址，主要用于测试。用汉语表示，就是’‘我自己’‘。在Windows系统中，这个地址有一个别名‘’localhost‘’。寻址这样一个地址，是不能把它发送到网络接口的。除非出错，否则在传输介质上永远不应该出现目的地址为‘’127.0.0.1‘’的数据包。</p>
+</li>
+<li><p><strong>224.0.0.1</strong></p>
+<p>组播地址，注意他和广播的区别。从224.0.0.0到239.255.255.255都是这样的地址。224.0.0.1特指所有主机，224.0.0.2特指所有路由器。这样的地址多用于一些特定的程序以及多媒体程序。如果你的主机开启了IRDP—Internet路由发现协议，使用组播功能，那么拟端主机路由器表中应该有这样一条路由。</p>
+</li>
+<li><p><strong>169.254.x.x</strong></p>
+<p>如果你的主机使用了DHCP功能自动获得一个IP地址，那么当你的DHCP服务器发生故障，或响应时间太长而超过一个系统规定的时间，Windows系统会为你分配这样一个地址。如果你发现你的主机IP地址是一个诸如此类的地址，很不幸，十有八九是你的网络不能正常运行了。</p>
+</li>
+<li><p><strong>10.x.x.x    172.16.x.x–172.31.x.x    192.168.x.x</strong></p>
+<p><strong>私有地址，这些地址被大量用于企业内部网络中。</strong>一些宽带路由器，也往往使用192.168.1.1作为缺省地址。私有网络由于不与外部互联，因而可能使用随意的IP地址。保留这样的地址供其使用是为了避免以后接入公网时引起地址混乱。使用私有地址的私有网络在接入Internet，要使用地址翻译NAT，将私有地址翻译成公用合法地址。在Internet上，这类地址是不能出现的。</p>
+<p>对一台网络上的主机来说，它可以正常接收的合法目的网络地址有三种；本机IP地址，广播地址以及组播地址。</p>
+</li>
+</ol>
+</li>
+<li><p><strong>HTTP协议基础</strong></p>
+</li>
+</ul>
+<ul>
+<li><p><strong>http消息头</strong></p>
+<ul>
+<li><strong>accept</strong>  设置接受的</li>
+<li><strong>accept-encoding</strong></li>
+<li><strong>accept-language</strong></li>
+<li><strong>authorization</strong></li>
+<li><strong>cache-control</strong></li>
+<li><strong>connection</strong></li>
+</ul>
+</li>
+<li><p><strong>HTTP方法</strong></p>
+<ul>
+<li><strong>GET</strong> </li>
+<li><strong>post</strong>   </li>
+<li><strong>head</strong>   返回报文的头部</li>
+<li><strong>trace</strong></li>
+<li><strong>options</strong> 客户端询问服务器可以提交哪些请求方法</li>
+<li>**put **    向指定的目录上传文件</li>
+</ul>
+</li>
+<li><p><strong>web渗透中不安全的HTTP方法</strong></p>
+<p>HTTP通常有GET、POST、<strong>DELETE</strong>、OPTIONS、<strong>PUT</strong>、PATCH五种，当然也有拓展的。我们将<strong>PUT、DELETE这种明显含有上传和删除文件权限的方法称作不安全的HTTP方法。</strong></p>
+<p>好了，不废话。平常我是怎么测试，通过GET请求访问一个网页，抓包然后将GET请求替换为OPTIONS方法，这时服务器通常会返回对于接口资源的支持，而开启哪些HTTP方法也包含其中。</p>
+</li>
+</ul>
+<p>![](C:\Users\Administrator\Pictures\Camera Roll\web渗透中不安全的HTTP方法.png)</p>
+<ul>
+<li><p><strong>HTTP和HTTPS的区别</strong></p>
+<p><strong>https的作用：</strong></p>
+<ul>
+<li><p>CIA：机密性、完整性、可用性(信息传输中)</p>
+</li>
+<li><p>解决的是信息传输过程中数据被篡改、窃取</p>
+</li>
+<li><p>只解决了数据传输过程中的机密性和完整性</p>
+</li>
+<li><p><strong>在客户端和服务端中的任何一个节点都可以把自己做成中间人的模式进行监听</strong></p>
+</li>
+<li><p><strong>客户端—-中间人(解密https查看之后)–服务端</strong></p>
+</li>
+<li><p><strong>正常情况下，客户端向服务端发起访问请求，发起请求之后服务端将含有公钥的证书下发给客户端，客户端拿到公钥证书之后随即在客户端生成一个对称密钥。通过这个对称密钥来加密后续的数据流量。但是对称密钥不会在网络中直接传输，对称密钥会用证书中的公钥把对称密钥加密发送给服务器端，服务器端有自己证书公钥对应的私钥，只有服务器端解出来客户端发来的数据，解出来之后就拿到加密数据的对称密钥，后续的数据还是使用对称加密密钥进行，因为每次会话的对称密钥都是客户端随机生成，所以一次通讯完成之后就会失效。时效短破解比较安全。</strong></p>
+</li>
+<li><p><strong>客户端—中间节点–服务器端</strong></p>
+</li>
+<li><p>黑客会在中间节点劫持时使自己的服务器上生成一张证书，伪造证书会按照服务器端的字段生成一个证书，伪造证书和真正的服务器端的证书公私钥是不一样的，<strong>因为公私钥是由非对称的加密算法来进行生成的，一个公钥加密的内容只有对应的私钥可以解开，所以公钥可以拿来给人，但是私钥要自己保存。</strong></p>
+</li>
+<li><p>伪造证书的作用；客户端访问访问服务器端时，其实是先访问了劫持者</p>
+</li>
+<li><h3 id="SeesionId-Token以及公私钥，服务端与客户端自己的交互"><a href="#SeesionId-Token以及公私钥，服务端与客户端自己的交互" class="headerlink" title="SeesionId ,Token以及公私钥，服务端与客户端自己的交互"></a>SeesionId ,Token以及公私钥，服务端与客户端自己的交互</h3><ul>
+<li><p>登录机制主要分为登录验证、登录保持、登出三个部分。</p>
+</li>
+<li><p><strong>登录验证</strong></p>
+<ol>
+<li><p>密码传输</p>
+<p>客户端第一次发出登录请求时， 用户密码以明文的方式传输， 一旦被截获， 后果严重。因此密码需要加密，例如可采用RSA非对称加密。具体流程如下：</p>
+<ul>
+<li>客户端向服务器第一次发起登录请求（<strong>不传输用户名和密码）。</strong></li>
+<li><strong>服务器</strong>利用RSA算法产生一对公钥和私钥。<strong>并保留私钥</strong>， <strong>将公钥发送给客户端</strong>。</li>
+<li>客户端收到公钥后， 加密用户密码， 向服务器发起第二次登录请求（传输用户名和加密后的密码）。</li>
+<li><strong>服务器利用保留的私钥对密文进行解密，得到真正的密码。</strong></li>
+</ul>
+</li>
+<li><p><strong>登录状态token</strong></p>
+<p>再仔细核对上述登录流程， 我们发现服务器判断用户是否登录， 完全依赖于sessionId, 一旦其被截获， 黑客就能够模拟出用户的请求。于是我们需要引入token的概念： 用户登录成功后， 服务器不但为其分配了sessionId, 还分配了token， token是维持登录状态的关键秘密数据。在服务器向客户端发送的token数据，也需要加密。于是一次登录的细节再次扩展。</p>
+<ul>
+<li><p>客户端向服务器第一次发起登录请求（不传输用户名和密码）。</p>
+</li>
+<li><p>服务器利用RSA算法产生一对公钥和私钥。并保留私钥， 将公钥发送给客户端。</p>
+</li>
+<li><p>客户端收到公钥后， 加密用户密码，向服务器发送用户名和加密后的用户密码； 同时另外产生一对公钥和私钥，自己保留私钥, 向服务器发送公钥； 于是第二次登录请求传输了用户名和加密后的密码以及客户端生成的公钥。</p>
+</li>
+<li><p>服务器利用保留的私钥对密文进行解密，得到真正的密码。 经过判断， 确定用户可以登录后，生成sessionId和token， 同时利用客户端发送的公钥，对token进行加密。最后将sessionId和加密后的token返还给客户端。</p>
+</li>
+<li><p>客户端利用自己生成的私钥对token密文解密， 得到真正的token。</p>
+<p>![](C:\Users\Administrator\Pictures\Camera Roll\公钥私钥.png)</p>
+</li>
+</ul>
+</li>
+<li><p><strong>登录保持</strong></p>
+<p>在最原始的方案中， 登录保持仅仅靠服务器生成的sessionId: 客户端的请求中带上sessionId, 如果服务器的redis中存在这个id，就认为请求来自相应的登录客户端。 但是只要sessionId被截获， 请求就可以为伪造， 存在安全隐患。</p>
+<p>引入token后，上述问题便可得到解决。 服务器将token和其它的一些变量， 利用散列加密<a target="_blank" rel="noopener" href="http://lib.csdn.net/base/31">算法</a>得到签名后，连同sessionId一并发送给服务器； 服务器取出保存于服务器端的token,利用相同的法则生成校验签名， 如果客户端签名与服务器的校验签名一致， 就认为请求来自登录的客户端。<a target="_blank" rel="noopener" href="http://nmgfrank.com/wp-content/uploads/2015/07/keep_login.png"><img src="http://nmgfrank.com/wp-content/uploads/2015/07/keep_login-300x131.png" alt="keep_login"></a></p>
+</li>
+<li></li>
+</ol>
+</li>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>死亡之ping</strong>（ping of death）：ping -t -l 65550 ip 死亡之ping(发送大于64K的文件并一直ping就成了死亡之ping)</p>
+</li>
+</ul>
+<p><strong>常见Dos攻击原理及防护（死亡之Ping、Smurf、Teardown、LandAttack、SYN Flood）</strong></p>
+<p><strong>DoS是Denial of Service的简称</strong>，即拒绝服务，造成DoS的攻击行为被称为DoS攻击，其目的是使计算机或网络无法提供正常的服务。最常见的DoS攻击有计算机网络带宽攻击和连通性攻击。</p>
+<p>burpsuite手机抓包</p>
+<p>手机安装burp证书</p>
+<p><strong>sessionid和token的区别；</strong></p>
+<p><strong>ping</strong></p>
+<p>ping用于确定本地主机是否与另一台主机成功交换数据包，再根据返回的信息，就可以推断出TCP/IP参数是否设置正确、网络是否畅通等。</p>
+<p><strong>dns</strong>—域名翻译成IP</p>
+<p>工作原理；可以把dns看成是你手机中的 通讯录，通讯录中有人名，人名对应手机号码等联系方式；当你想打电话给某个人时，在通讯里中输入那个人的名称，就好像你的浏览器中输入域名url。然后通讯录检索到你输入的那个人名，然后返回那个人的电话号码，换成dns，就是dns将你输入的url对应成IP地址，然后将IP地址返回给服务器，从而帮助用户获取网页内容。</p>
+<p><strong>cdn</strong>—内容分发网络–通俗理解就是<strong>网站加速</strong>，可以解决跨运营商，跨地区，服务器负载能力过低，带宽过少等带来的网站打开速度慢等问题。</p>
+<p>例子；比如：</p>
+<p>1.一个企业的网站服务器在北京，运营商是电信，在广东的联通用户访问<a target="_blank" rel="noopener" href="https://baike.so.com/doc/404357.html">企业网站</a>时，因为跨地区，跨运营商的原因，网站打开速度就会比北京当地的电信客户访问速度慢很多，很容易造成这个企业的客户流失</p>
+<p>2.一个网站的服务器性能比较差，承载能力有限，有时面临突发流量，招架不住，直接导致服务器崩溃，网站打不开，尤其是电商网站在节日期间，因为这种情况网站打不开，销售额白白流失的占比都高涨至60%</p>
+<p>3.再比如一些中小企业租用的<a target="_blank" rel="noopener" href="https://baike.so.com/doc/2724947.html">虚拟主机</a>，因为跟好几个网站共用一台服务器，每个网站所分带宽有限，带宽过小经常导致流量稍微一多，网站打开速度就很慢，甚至打不开</p>
+<p>其<strong>基本思路</strong>是尽可能避开互联网上有可能影响数据传输速度和稳定性的瓶颈和环节，使内容传输的更快、更稳定。通过在网络各处放置节点服务器所构成的在现有的互联网基础之上的一层智能虚拟网络，CDN系统能够实时地根据网络流量和各节点的连接、负载状况以及到用户的距离和响应时间等综合信息将用户的请求重新导向离用户最近的服务节点上。其目的是使用户可就近取得所需内容，解决 Internet网络拥挤的状况，提高用户访问网站的响应速度。</p>
+<p><strong>cookie和session的区别</strong></p>
+<p>比如说，客户端要访问服务端的资源，提交自己的用户名和密码进行身份认证，身份认证通过之后服务器端就会给客户端下发一个cookie信息，Cooke交给客户端后，后续的每次访问请求都会携带cookie信息，服务器端之所以能够跟踪</p>
+<p>\1. 由于HTTP协议是无状态的协议，所以服务端需要记录用户的状态时，就需要用某种机制来识具体的用户，这个机制就是Session.典型的场景比如购物车，当你点击下单按钮时，由于HTTP协议无状态，所以并不知道是哪个用户操作的，所以服务端要为特定的用户创建了特定的Session，用用于标识这个用户，并且跟踪用户，这样才知道购物车里面有几本书。这个Session是保存在服务端的，有一个唯一标识。在服务端保存Session的方法很多，内存、数据库、文件都有。集群的时候也要考虑Session的转移，在大型的网站，一般会有专门的Session服务器集群，用来保存用户会话，这个时候 Session 信息都是放在内存的，使用一些缓存服务比如Memcached之类的来放 Session。<br>\2. 思考一下服务端如何识别特定的客户？这个时候Cookie就登场了。每次HTTP请求的时候，客户端都会发送相应的Cookie信息到服务端。实际上大多数的应用都是用 Cookie 来实现Session跟踪的，第一次创建Session的时候，服务端会在HTTP协议中告诉客户端，需要在 Cookie 里面记录一个Session ID，以后每次请求把这个会话ID发送到服务器，我就知道你是谁了。有人问，如果客户端的浏览器禁用了 Cookie 怎么办？一般这种情况下，会使用一种叫做URL重写的技术来进行会话跟踪，即每次HTTP交互，URL后面都会被附加上一个诸如 sid=xxxxx 这样的参数，服务端据此来识别用户。<br>\3. Cookie其实还可以用在一些方便用户的场景下，设想你某次登陆过一个网站，下次登录的时候不想再次输入账号了，怎么办？这个信息可以写到Cookie里面，访问网站的时候，网站页面的脚本可以读取这个信息，就自动帮你把用户名给填了，能够方便一下用户。这也是Cookie名称的由来，给用户的一点甜头。</p>
+<ul>
+<li>Session是<strong>在服务端</strong>保存的一个数据结构，用来跟踪用户的状态，这个数据可以保存在集群、数据库、文件中；</li>
+<li>Cookie是<strong>客户端</strong>保存用户信息的一种机制，用来记录用户的一些信息，<strong>也是实现Session的一种方式</strong>。</li>
+</ul>
+<p>session</p>
+<ul>
+<li>cookie里也可以存放sessionid，真正的session在服务器端，session定时失效</li>
+</ul>
+<p><strong>TLS/SSL</strong></p>
+<ul>
+<li>SSL安全套接层</li>
+</ul>
+<p><strong>身份认证</strong></p>
+<ul>
+<li>证明你是你声称你是的那个人<ul>
+<li>你知道什么–账号密码、PIN、parsparse</li>
+<li>你有什么</li>
+</ul>
+</li>
+<li></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享。您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt=" WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt=" Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/03/24/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/" rel="next" title="命令执行漏洞">
+                <i class="fa fa-chevron-left"></i> 命令执行漏洞
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/%5Bobject%20Object%5D"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7Carchive">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/jianier" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/weixin_44651158" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Burp-Suite%E4%B8%ADintruder%E7%88%86%E7%A0%B4%E6%A8%A1%E5%9D%97%E5%9B%9B%E7%A7%8D%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.</span> <span class="nav-text">Burp Suite中intruder爆破模块四种模式的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SeesionId-Token%E4%BB%A5%E5%8F%8A%E5%85%AC%E7%A7%81%E9%92%A5%EF%BC%8C%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B8%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%87%AA%E5%B7%B1%E7%9A%84%E4%BA%A4%E4%BA%92"><span class="nav-number">1.1.</span> <span class="nav-text">SeesionId ,Token以及公私钥，服务端与客户端自己的交互</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yao Jiaying</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共24.3k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
